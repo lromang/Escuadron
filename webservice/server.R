@@ -4,8 +4,6 @@ source("functions.R", local = FALSE)
 instit <- get.inst_data()
     
 shinyServer(function(input, output, session) {
-
-
     
   datasetInput <- reactive({
     ## En esta seccin se carga la base de datos desde la liga que se proporciona.
@@ -14,12 +12,10 @@ shinyServer(function(input, output, session) {
   
     output$table <- renderDataTable({
         ## Despliegue de resultados.
-    datasetInput()
+        ##datasetInput()
     })
-
     
-  updateSelectizeInput(session, "inst",choices = instit[,2],server = TRUE)
-    
+  updateSelectizeInput(session, "inst", choices = instit$inst, server = TRUE)
 
   output$downloadData <- downloadHandler(
     # Nombre del archivo

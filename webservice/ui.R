@@ -9,10 +9,13 @@ shinyUI(fluidPage(
                   h4("Selección"),
                   br(),
                   selectizeInput("inst", h4("Institución"),
-                                 choices = NULL,
-                                 options = list(placeholder = 'Escriba el nombre de una institución',
+                                 choices = '',
+                                 options =
+                                     list(placeholder = 'Escriba el nombre de una institución',
                                                 maxItems = 1,
-                                                maxOptions = 5)),
+                                          maxOptions = 5,
+                                 create = FALSE)
+      ),
                   radioButtons("set",
                                h4("Elija fuente:"),
                                choices = list("Plan" = 1, "Catálogo" = 2),
@@ -26,8 +29,7 @@ shinyUI(fluidPage(
               tabPanel(
                   h4("Análisis")
               )
-          )
-          
+          )       
                    ),
       mainPanel(h3("Datos")
       )
