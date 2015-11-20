@@ -1,4 +1,5 @@
-##-----------------------------
+shinyServer(function(input, output) {
+    ##-----------------------------
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(XML))
 suppressPackageStartupMessages(library(stringr))
@@ -18,8 +19,6 @@ suppressPackageStartupMessages(library(rCharts))
 ## Lectura de datos
 all_data <- read.csv("https://raw.githubusercontent.com/lromang/MiningDatosGob/master/Datasets/MAT.csv") %>%
            dplyr::filter(dep != "grupos")
-
-shinyServer(function(input, output) {
 
     output$openhist <- renderPlotly({
         data_plot <- plyr::count(all_data$dep)

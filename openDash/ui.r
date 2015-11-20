@@ -3,7 +3,7 @@ shinyUI(
         navbarPage(title= "Escuadrón de Datos",#div(img(src="logomxa.png",style="width:100px;height:100px"), "    "),
         ##   position = "fixed-top",
                    theme="http://bootswatch.com/readable/bootstrap.min.css",
-                   tabPanel("Dependencias",
+                   tabPanel("Dashboard",
                             fluidRow(
                                 column(3, wellPanel(
                                               selectInput("inst", "Dependencia",
@@ -175,11 +175,10 @@ shinyUI(
                                           )),
                                 column(3,
                                        column(12,
-                                              h2("Dependencias", style="color:#2196F3")
-                                              ),
-                                       column(12,offset=2,
-                                              h2(textOutput("dep"), style="color:#2196F3")
-                                              )
+                                              box(width = 12, status = "info",
+                                                  title = "Dependencias",
+                                                  div(infoBoxOutput("dep"),
+                                                      style="width: 40% ; height: 60px ; margin: 10px 10px 10px 10px ;float:left ")))
                                        ),
                                 column(3,
                                        column(12,
@@ -202,6 +201,9 @@ shinyUI(
                                         # This outputs the dynamic UI component
                                                plotlyOutput("openhist")   #, height = 2500),
                                            ))
-                            )))
+                            )),
+                   tabPanel("Reporte"),
+                   tabPanel("Contacto")
+                   )
     ))
 
