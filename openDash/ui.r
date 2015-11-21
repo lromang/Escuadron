@@ -175,10 +175,11 @@ shinyUI(
                                           )),
                                 column(3,
                                        column(12,
-                                              box(width = 12, status = "info",
-                                                  title = "Dependencias",
-                                                  div(infoBoxOutput("dep"),
-                                                      style="width: 40% ; height: 60px ; margin: 10px 10px 10px 10px ;float:left ")))
+                                              h2("Dependencias", style="color:#2196F3")
+                                              ),
+                                       column(12, offset=2,
+                                              h2(textOutput("dep"), style="color:#2196F3")
+                                              )                                       
                                        ),
                                 column(3,
                                        column(12,
